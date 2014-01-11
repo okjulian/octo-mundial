@@ -18,7 +18,22 @@
   "strict": true,
   "trailing": true,
   "smarttabs": true,
+  "-W015": false,
+  "-W040": false,
   "globals": {
-    "angular": false
+    "angular": false,
+    "describe": false,
+    "beforeEach": false,
+    "it": false,
+    "browser": false,
+    "element": false,
+    "inject": false,
+    "xdescribe": false,
+    "xit": false,
+    "jasmine": false,
+    "using": false,
+    "pause": false,
+    "input": false,
+    "expect": false
   }
 }

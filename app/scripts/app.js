@@ -4,13 +4,14 @@ angular.module('copaApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
+  'ui.bootstrap',
   'ngRoute'
 ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/fase-grupos.html',
+        controller: 'FaseGruposCtrl'
       })
       .otherwise({
         redirectTo: '/'
