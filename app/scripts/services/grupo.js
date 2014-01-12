@@ -14,7 +14,12 @@ angular.module('copaApp')
 
         Grupo.prototype.autoCompletar = function () {
             this.partidos.forEach(function (partido) {
-                partido.ponerResultado(Math.floor(Math.random() * 4), Math.floor(Math.random() * 4));
+                if (partido.resultado[0] === null) {
+                    partido.ponerResultado(Math.floor(Math.random() * 4), partido.resultado[1]);
+                }
+                if (partido.resultado[1] === null) {
+                    partido.ponerResultado(partido.resultado[0], Math.floor(Math.random() * 4));
+                }
             });
         };
 

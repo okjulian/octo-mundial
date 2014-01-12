@@ -16,4 +16,13 @@ angular.module('copaApp')
         $scope.autoCompletarGrupo = function (letra) {
             FaseGrupos.grupos[letra].autoCompletar();
         };
+
+        $scope.autoCompletarGrupos = function () {
+            for (var grupo in FaseGrupos.grupos) {
+                if (FaseGrupos.grupos.hasOwnProperty(grupo)) {
+
+                    FaseGrupos.grupos[grupo].autoCompletar();
+                }
+            }
+        };
     });

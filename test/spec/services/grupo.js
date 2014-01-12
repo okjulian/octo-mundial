@@ -53,6 +53,14 @@ describe('Service: Grupo', function () {
                 expect(partido.resultado[1]).not.toBe(null);
             });
         });
+
+        it('no deberia sobreescribir resultados ya asignados', function () {
+            var grupoA = new Grupo('Brasil', 'Croacia', 'México', 'Camerún');
+            grupoA.partidos[0].ponerResultado(3, 1);
+            grupoA.autoCompletar();
+            expect(grupoA.partidos[0].resultado[0]).toBe(3);
+            expect(grupoA.partidos[0].resultado[1]).toBe(1);
+        });
     });
 
 });

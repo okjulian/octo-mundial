@@ -74,61 +74,71 @@
                 expect(golesEquipoUnoDelGrupo('A')).not().toBe('');
                 expect(golesEquipoDosDelGrupo('A')).not().toBe('');
             });
-        });
-        /*
+
             it('deberia poder generar los resultados del grupo B', function () {
                 tabDelGrupo('B').click();
                 botonCompletarGrupo('B').click();
-                expect(resultadosGrupo('B')).not().toBe('');
+                expect(golesEquipoUnoDelGrupo('B')).not().toBe('');
+                expect(golesEquipoDosDelGrupo('B')).not().toBe('');
             });
 
             it('deberia poder generar los resultados del grupo C', function () {
                 tabDelGrupo('C').click();
                 botonCompletarGrupo('C').click();
-                expect(resultadosGrupo('C')).not().toBe('');
+                expect(golesEquipoUnoDelGrupo('C')).not().toBe('');
+                expect(golesEquipoDosDelGrupo('C')).not().toBe('');
             });
 
             it('deberia poder generar los resultados del grupo D', function () {
                 tabDelGrupo('D').click();
                 botonCompletarGrupo('D').click();
-                expect(resultadosGrupo('D')).not().toBe('');
+                expect(golesEquipoUnoDelGrupo('D')).not().toBe('');
+                expect(golesEquipoDosDelGrupo('D')).not().toBe('');
             });
 
             it('deberia poder generar los resultados del grupo E', function () {
                 tabDelGrupo('E').click();
                 botonCompletarGrupo('E').click();
-                expect(resultadosGrupo('E')).not().toBe('');
+                expect(golesEquipoUnoDelGrupo('E')).not().toBe('');
+                expect(golesEquipoDosDelGrupo('E')).not().toBe('');
             });
 
             it('deberia poder generar los resultados del grupo F', function () {
                 tabDelGrupo('F').click();
                 botonCompletarGrupo('F').click();
-                expect(resultadosGrupo('F')).not().toBe('');
+                expect(golesEquipoUnoDelGrupo('F')).not().toBe('');
+                expect(golesEquipoDosDelGrupo('F')).not().toBe('');
             });
 
             it('deberia poder generar los resultados del grupo G', function () {
                 tabDelGrupo('G').click();
                 botonCompletarGrupo('G').click();
-                expect(resultadosGrupo('G')).not().toBe('');
+                expect(golesEquipoUnoDelGrupo('G')).not().toBe('');
+                expect(golesEquipoDosDelGrupo('G')).not().toBe('');
             });
 
             it('deberia poder generar los resultados del grupo H', function () {
                 tabDelGrupo('H').click();
                 botonCompletarGrupo('H').click();
-                expect(resultadosGrupo('H')).not().toBe('');
+                expect(golesEquipoUnoDelGrupo('H')).not().toBe('');
+                expect(golesEquipoDosDelGrupo('H')).not().toBe('');
             });
 
             it('deberia poder generar los resultados de todos los grupos desde el grupo A', function () {
                 botonCompletarGruposDelGrupo('A').click();
-                expect(resultadosGrupo('A')).not().toBe('');
-                expect(resultadosGrupo('B')).not().toBe('');
+                expect(golesEquipoUnoDelGrupo('A')).not().toBe('');
+                expect(golesEquipoDosDelGrupo('A')).not().toBe('');
+                expect(golesEquipoUnoDelGrupo('B')).not().toBe('');
+                expect(golesEquipoDosDelGrupo('B')).not().toBe('');
             });
 
             it('deberia poder generar los resultados de todos los grupos desde el grupo B', function () {
                 tabDelGrupo('B').click();
                 botonCompletarGruposDelGrupo('B').click();
-                expect(resultadosGrupo('A')).not().toBe('');
-                expect(resultadosGrupo('B')).not().toBe('');
+                expect(golesEquipoUnoDelGrupo('A')).not().toBe('');
+                expect(golesEquipoDosDelGrupo('A')).not().toBe('');
+                expect(golesEquipoUnoDelGrupo('B')).not().toBe('');
+                expect(golesEquipoDosDelGrupo('B')).not().toBe('');
             });
 
             it('no deberia completar el resultado de un partido ya asignado manualmente en el grupo A', function () {
@@ -148,8 +158,7 @@
                 expect(obtenerResultado('B', 2, 2)).toBe('1');
             });
         });
-
-    });
+        /*
 
     describe('Octavos', function () {
         it('deberia mostrar los equipos a enfrentarse antes de que finalicen los grupos', function () {
