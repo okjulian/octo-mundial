@@ -16,8 +16,11 @@ describe('Controller: FaseGruposCtrl', function () {
         });
     }));
 
-    it('deberia tener los 6 partidos del grupo A', function () {
-        expect(scope.partidos.A.length).toBe(6);
+    it('deberia tener los 6 partidos de cada grupo', function () {
+        var letrasGrupos = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+        letrasGrupos.forEach(function (letraGrupo) {
+            expect(scope.partidos[letraGrupo].length).toBe(6);
+        });
     });
 
     describe('autocompletar', function () {

@@ -14,14 +14,49 @@
             expect(claseDeTabDelGrupo('A')).toContain('active');
             expect(cantidadDePartidosDelGrupo('A')).toBe(6);
         });
-        /*
 
         it('deberia mostrar los 6 partidos del grupo B', function () {
             tabDelGrupo('B').click();
             expect(claseDeTabDelGrupo('B')).toContain('active');
             expect(cantidadDePartidosDelGrupo('B')).toBe(6);
         });
-		
+
+        it('deberia mostrar los 6 partidos del grupo C', function () {
+            tabDelGrupo('C').click();
+            expect(claseDeTabDelGrupo('C')).toContain('active');
+            expect(cantidadDePartidosDelGrupo('C')).toBe(6);
+        });
+
+        it('deberia mostrar los 6 partidos del grupo D', function () {
+            tabDelGrupo('D').click();
+            expect(claseDeTabDelGrupo('D')).toContain('active');
+            expect(cantidadDePartidosDelGrupo('D')).toBe(6);
+        });
+
+        it('deberia mostrar los 6 partidos del grupo E', function () {
+            tabDelGrupo('E').click();
+            expect(claseDeTabDelGrupo('E')).toContain('active');
+            expect(cantidadDePartidosDelGrupo('E')).toBe(6);
+        });
+
+        it('deberia mostrar los 6 partidos del grupo F', function () {
+            tabDelGrupo('F').click();
+            expect(claseDeTabDelGrupo('F')).toContain('active');
+            expect(cantidadDePartidosDelGrupo('F')).toBe(6);
+        });
+
+        it('deberia mostrar los 6 partidos del grupo G', function () {
+            tabDelGrupo('G').click();
+            expect(claseDeTabDelGrupo('G')).toContain('active');
+            expect(cantidadDePartidosDelGrupo('G')).toBe(6);
+        });
+
+        it('deberia mostrar los 6 partidos del grupo H', function () {
+            tabDelGrupo('H').click();
+            expect(claseDeTabDelGrupo('H')).toContain('active');
+            expect(cantidadDePartidosDelGrupo('H')).toBe(6);
+        });
+        /*
 		it('deberia mostrar cero si un resultado se coloca como negativo', function () {
             ponerResultado('A', 1, 1, -1);
             expect(obtenerResultado('A', 1, 1)).toBe('0');
@@ -40,7 +75,7 @@
                 expect(golesEquipoDosDelGrupo('A')).not().toBe('');
             });
         });
-/*
+        /*
             it('deberia poder generar los resultados del grupo B', function () {
                 tabDelGrupo('B').click();
                 botonCompletarGrupo('B').click();
