@@ -3,23 +3,10 @@
 describe('Service: Grupo', function () {
 
     // load the service's module
-    beforeEach(module('copaApp', function ($provide) {
-        EquipoMock = function (nombre) {
-            this.nombre = nombre;
-        };
-        PartidoMock = function (equipo1, equipo2) {
-            this.equipos = [];
-            this.equipos.push(equipo1);
-            this.equipos.push(equipo2);
-        };
-        $provide.value('Equipo', EquipoMock);
-        $provide.value('Partido', PartidoMock);
-    }));
+    beforeEach(module('copaApp'));
 
     // instantiate service
-    var Grupo,
-        EquipoMock,
-        PartidoMock;
+    var Grupo;
 
     beforeEach(inject(function (_Grupo_) {
         Grupo = _Grupo_;
@@ -52,6 +39,20 @@ describe('Service: Grupo', function () {
 
         expect(grupoA.partidos[5].equipos[0].nombre).toBe('Croacia');
         expect(grupoA.partidos[5].equipos[1].nombre).toBe('México');
+    });
+
+    describe('autoCompletar', function () {
+        it('deberia llenar los resultados de todos los partidos del equipo con valores al azar', function () {
+            var grupoA = new Grupo('Brasil', 'Croacia', 'México', 'Camerún');
+            grupoA.autoCompletar();
+            grupoA.partidos.forEach(function (partido) {
+
+                expect(partido.resultado[0]).toBeDefined();
+                expect(partido.resultado[1]).toBeDefined();
+                expect(partido.resultado[0]).not.toBe(null);
+                expect(partido.resultado[1]).not.toBe(null);
+            });
+        });
     });
 
 });

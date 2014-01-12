@@ -12,6 +12,12 @@ angular.module('copaApp')
             this.partidos = generarPartidos(this.equipos);
         };
 
+        Grupo.prototype.autoCompletar = function () {
+            this.partidos.forEach(function (partido) {
+                partido.ponerResultado(Math.floor(Math.random() * 4), Math.floor(Math.random() * 4));
+            });
+        };
+
         var generarPartidos = function (equipos) {
             var partidos = [];
 

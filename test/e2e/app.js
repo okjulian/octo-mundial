@@ -31,14 +31,16 @@
             ponerResultado('B', 1, 1, 'aasd');
             expect(obtenerResultado('B', 1, 1)).toBe('0');
         });
-
+*/
         describe('Autocompletar', function () {
 
             it('deberia poder generar los resultados del grupo A', function () {
                 botonCompletarGrupo('A').click();
-                expect(resultadosGrupo('A')).not().toBe('');
+                expect(golesEquipoUnoDelGrupo('A')).not().toBe('');
+                expect(golesEquipoDosDelGrupo('A')).not().toBe('');
             });
-
+        });
+/*
             it('deberia poder generar los resultados del grupo B', function () {
                 tabDelGrupo('B').click();
                 botonCompletarGrupo('B').click();
@@ -250,8 +252,12 @@
         return element('.tab-pane:eq(' + letraANumero(letra) + ') .completar-grupo');
     }
 
-    function resultadosGrupo(letra) {
+    function golesEquipoUnoDelGrupo(letra) {
         return element('.tab-pane:eq(' + letraANumero(letra) + ') .resultado:eq(0)').val();
+    }
+
+    function golesEquipoDosDelGrupo(letra) {
+        return element('.tab-pane:eq(' + letraANumero(letra) + ') .resultado:eq(1)').val();
     }
 
     function botonCompletarGruposDelGrupo(letra) {
