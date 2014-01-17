@@ -20,9 +20,9 @@ angular.module('copaApp')
         $scope.autoCompletarGrupos = function () {
             for (var grupo in FaseGrupos.grupos) {
                 if (FaseGrupos.grupos.hasOwnProperty(grupo)) {
-
                     FaseGrupos.grupos[grupo].autoCompletar();
                 }
             }
         };
+
     });

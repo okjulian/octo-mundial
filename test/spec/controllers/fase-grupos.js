@@ -50,7 +50,6 @@ describe('Controller: FaseGruposCtrl', function () {
             });
         });
 
-
     });
 
 });

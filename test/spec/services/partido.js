@@ -36,6 +36,33 @@ describe('Service: Partido', function () {
             expect(partido.resultado[0]).toBe(3);
             expect(partido.resultado[1]).toBe(1);
         });
+
+        it('deberia sumar 3 puntos al primer equipo si gana', function () {
+
+            var partido = new Partido(new Equipo('Argentina'), new Equipo('Brasil'));
+
+            partido.ponerResultado(3, 1);
+            expect(partido.equipos[0].puntos).toBe(3);
+            expect(partido.equipos[1].puntos).toBe(0);
+        });
+
+        it('deberia sumar 3 puntos al segundo equipo si gana', function () {
+
+            var partido = new Partido(new Equipo('Argentina'), new Equipo('Brasil'));
+
+            partido.ponerResultado(1, 2);
+            expect(partido.equipos[0].puntos).toBe(0);
+            expect(partido.equipos[1].puntos).toBe(3);
+        });
+
+        it('deberia sumar 1 punto a cada equipo en caso de empate', function () {
+
+            var partido = new Partido(new Equipo('Argentina'), new Equipo('Brasil'));
+
+            partido.ponerResultado(1, 1);
+            expect(partido.equipos[0].puntos).toBe(1);
+            expect(partido.equipos[1].puntos).toBe(1);
+        });
     });
 
 });
