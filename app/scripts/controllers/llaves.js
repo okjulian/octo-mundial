@@ -5,4 +5,11 @@ angular.module('copaApp')
   $scope.octavos = Octavos;
   FaseGrupos.actualizarGanadores();
   Octavos.generarPartidos();
+
+  $scope.$watch('FaseGrupos', function () {
+    console.log('watching');
+    FaseGrupos.actualizarGanadores();
+    Octavos.generarPartidos();
+  });
+
 });

@@ -10,15 +10,34 @@ angular.module('copaApp')
         };
 
         Partido.prototype.ponerResultado = function (golesEquipo1, golesEquipo2) {
-            this.resultado = [golesEquipo1, golesEquipo2];
-            if (golesEquipo1 > golesEquipo2) {
-                this.equipos[0].puntos += 3;
-            } else if (golesEquipo1 < golesEquipo2) {
-                this.equipos[1].puntos += 3;
-            } else if (golesEquipo1 === golesEquipo2) {
-                this.equipos[0].puntos += 1;
-                this.equipos[1].puntos += 1;
+          // From the book effective js
+          function isReallyNaN(x) {
+            return x !== x;
+          };
+          if (golesEquipo1 !== null && golesEquipo1 !== undefined) {
+            if (golesEquipo1 <= 0 || (isReallyNaN(+golesEquipo1))) {
+              golesEquipo1 = 0;
             }
+
+            this.resultado[0] = +golesEquipo1; // + (plus) converts to int
+          }
+          if (golesEquipo2 !== null && golesEquipo2 !== undefined) {
+            if (golesEquipo2 <= 0 || (isReallyNaN(+golesEquipo2))) {
+              golesEquipo2 = 0;
+            }
+            this.resultado[1] = +golesEquipo2;
+          }
+
+          if (this.resultado[0] !== null && this.resultado[1] !== null) {
+            if (this.resultado[0] > this.resultado[1]) {
+              this.equipos[0].puntos += 3;
+            } else if (this.resultado[0] < this.resultado[1]) {
+              this.equipos[1].puntos += 3;
+            } else if (this.resultado[0] === this.resultado[1]) {
+              this.equipos[0].puntos += 1;
+              this.equipos[1].puntos += 1;
+            }
+          }
         };
 
         // Public API here

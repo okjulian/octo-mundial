@@ -63,6 +63,31 @@ describe('Service: Partido', function () {
             expect(partido.equipos[0].puntos).toBe(1);
             expect(partido.equipos[1].puntos).toBe(1);
         });
+
+        it('deberia poder asignar goles de un solo equipo', function () {
+            var partido = new Partido(new Equipo('Argentina'), new Equipo('Brasil'));
+            partido.ponerResultado(1, null);
+            expect(partido.equipos[0].puntos).toBe(0);
+            expect(partido.equipos[1].puntos).toBe(0);
+            partido.ponerResultado(null, 1);
+            expect(partido.equipos[0].puntos).toBe(1);
+            expect(partido.equipos[1].puntos).toBe(1);
+        });
+
+        it('deberia mostrar cero si un resultado se coloca como negativo', function () {
+            var partido = new Partido(new Equipo('Argentina'), new Equipo('Brasil'));
+            partido.ponerResultado(-1, -1);
+            expect(partido.resultado[0]).toBe(0);
+            expect(partido.resultado[1]).toBe(0);
+        });
+
+        it('deberia mostrar cero si un resultado se coloca como String', function () {
+            var partido = new Partido(new Equipo('Argentina'), new Equipo('Brasil'));
+            partido.ponerResultado('string', 'another');
+            expect(partido.resultado[0]).toBe(0);
+            expect(partido.resultado[1]).toBe(0);
+        });
+
     });
 
 });

@@ -52,4 +52,9 @@ describe('Controller: FaseGruposCtrl', function () {
 
     });
 
+    describe('ponerResultado', function () {
+      it('deberia llamar a la funcion ponerResultado de Partido', function () {
+      });
+    });
+
 });

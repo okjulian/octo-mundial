@@ -32,6 +32,10 @@ describe('Controller: LlavesCtrl', function () {
         it('deberia llamar a la funcion actualizarGanadores de FaseGrupos', function () {
             expect(FaseGruposMock.actualizarGanadores).toHaveBeenCalled();
         });
+
+        it('deberia actualizar sus partidos cuando cambie fase de grupos', function () {
+
+        });
     });
 
     xdescribe('Cuartos', function () {
