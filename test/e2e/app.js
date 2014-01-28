@@ -324,6 +324,45 @@
       });
     });
 
+    describe('Semis', function () {
+
+      it('deberia mostrar los equipos a enfrentarse antes de que finalicen los cuartos', function () {
+        botonLlaves().click();
+        expect(cantidadDePartidos('semis')).toBe(2);
+        expect(nombreEquipo('semis', 1, 1)).toBe('Ganador cuartos 1');
+        expect(nombreEquipo('semis', 1, 2)).toBe('Ganador cuartos 2');
+        expect(nombreEquipo('semis', 2, 1)).toBe('Ganador cuartos 3');
+        expect(nombreEquipo('semis', 2, 2)).toBe('Ganador cuartos 4');
+      });
+
+      it('deberia enfrentar a los ganadores de octavos', function () {
+        browser().navigateTo('/');
+
+        botonCompletarGruposDelGrupo('A').click();
+
+        botonLlaves().click();
+
+        // partido 1 de octavos: 2-0
+        ponerResultadoEnLlave('octavos', 1, 1, 2);
+        ponerResultadoEnLlave('octavos', 1, 2, 0);
+
+        // partido 2 de octavos: 2-3
+        ponerResultadoEnLlave('octavos', 1, 1, 2);
+        ponerResultadoEnLlave('octavos', 1, 2, 3);
+
+        tabDeLlave('cuartos').click();
+
+        // partido 1 de cuartos: 1-0
+        ponerResultadoEnLlave('cuartos', 1, 1, 1);
+        ponerResultadoEnLlave('cuartos', 1, 2, 0);
+
+        tabDeLlave('semis').click();
+
+        expect(nombreEquipo('semis', 1, 1)).not().toBe('Ganador cuartos 1');
+      });
+ 
+    });
+
     function claseDeTabDelGrupo(letra) {
       return element('#partidos li:eq(' + letraANumero(letra) + ')').attr('class');
     }
