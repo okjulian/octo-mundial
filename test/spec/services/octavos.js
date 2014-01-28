@@ -63,6 +63,28 @@ describe('Service: Octavos', function () {
     expect(Octavos.partidos[6].equipos[1].nombre).not.toBe('2° - Grupo E');
     expect(Octavos.partidos[7].equipos[0].nombre).not.toBe('1° - Grupo H');
     expect(Octavos.partidos[7].equipos[1].nombre).not.toBe('2° - Grupo G');
-
   });
+
+  it('deberia tener 8 ganadores con respectivos nombres', function () {
+    expect(Octavos.ganadores.length).toBe(8);
+    expect(Octavos.ganadores[0].nombre).toBe('Ganador octavos 1');
+    expect(Octavos.ganadores[1].nombre).toBe('Ganador octavos 2');
+    expect(Octavos.ganadores[2].nombre).toBe('Ganador octavos 3');
+    expect(Octavos.ganadores[3].nombre).toBe('Ganador octavos 4');
+    expect(Octavos.ganadores[4].nombre).toBe('Ganador octavos 5');
+    expect(Octavos.ganadores[5].nombre).toBe('Ganador octavos 6');
+    expect(Octavos.ganadores[6].nombre).toBe('Ganador octavos 7');
+    expect(Octavos.ganadores[7].nombre).toBe('Ganador octavos 8');
+  });
+
+  it('deberia actualizar los ganadores al completar los partidos', function () {
+    FaseGrupos.autoCompletar();
+    FaseGrupos.actualizarGanadores();
+    Octavos.generarPartidos();
+    expect(Octavos.ganadores[0].nombre).toBe('Ganador octavos 1');
+    Octavos.partidos[0].ponerResultado(1, 0);
+    Octavos.calcularGanadores();
+    expect(Octavos.ganadores[0].nombre).not.toBe('Ganador octavos 1');
+  });
+
 });

@@ -1,9 +1,11 @@
 'use strict';
 
 angular.module('copaApp')
-    .service('Octavos', function Octavos(FaseGrupos, Partido) {
+    .service('Octavos', function Octavos(FaseGrupos, Partido, Equipo) {
 
         var octavos = this;
+
+        this.partidos = [];
 
         this.generarPartidos = function () {
             octavos.partidos = [new Partido(FaseGrupos.grupos.A.ganadores[0], FaseGrupos.grupos.B.ganadores[1]),
@@ -16,5 +18,24 @@ angular.module('copaApp')
                          new Partido(FaseGrupos.grupos.H.ganadores[0], FaseGrupos.grupos.G.ganadores[1])];
         };
 
-        octavos.generarPartidos();
+        this.ganadores = [
+          new Equipo('Ganador octavos 1'),
+          new Equipo('Ganador octavos 2'),
+          new Equipo('Ganador octavos 3'),
+          new Equipo('Ganador octavos 4'),
+          new Equipo('Ganador octavos 5'),
+          new Equipo('Ganador octavos 6'),
+          new Equipo('Ganador octavos 7'),
+          new Equipo('Ganador octavos 8')
+        ];
+
+        this.calcularGanadores = function () {
+          this.partidos.forEach(actualizarGanador);
+        };
+
+        function actualizarGanador(partido, indice) {
+          if (partido.ganador !== null) {
+            octavos.ganadores[indice] = partido.ganador;
+          }
+        }
     });

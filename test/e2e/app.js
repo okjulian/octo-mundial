@@ -253,7 +253,7 @@
 
     });
 
-    xdescribe('Cuartos', function () {
+    describe('Cuartos', function () {
 
       it('deberia mostrar los equipos a enfrentarse antes de que finalicen los octavos', function () {
         botonLlaves().click();
@@ -413,7 +413,7 @@
     }
 
     function ponerResultadoEnLlave(llave, partido, equipo, resultado) {
-      input('partidos.' + llave + '[' + (partido - 1) + '].resultado[' + (equipo - 1) + ']').enter(resultado);
+      using('.tab-pane:eq(' + llaveAIndice(llave) + ') .partido:eq(' + (partido - 1) + ')').input('partido.resultado[' + (equipo - 1) + ']').enter(resultado);
     }
   });
 
