@@ -257,6 +257,7 @@
 
       it('deberia mostrar los equipos a enfrentarse antes de que finalicen los octavos', function () {
         botonLlaves().click();
+
         expect(cantidadDePartidos('cuartos')).toBe(4);
         expect(nombreEquipo('cuartos', 1, 1)).toBe('Ganador octavos 1');
         expect(nombreEquipo('cuartos', 1, 2)).toBe('Ganador octavos 2');
@@ -335,7 +336,7 @@
         expect(nombreEquipo('semis', 2, 2)).toBe('Ganador cuartos 4');
       });
 
-      it('deberia enfrentar a los ganadores de octavos', function () {
+      it('deberia enfrentar a los ganadores de cuartos', function () {
         browser().navigateTo('/');
 
         botonCompletarGruposDelGrupo('A').click();
@@ -347,8 +348,8 @@
         ponerResultadoEnLlave('octavos', 1, 2, 0);
 
         // partido 2 de octavos: 2-3
-        ponerResultadoEnLlave('octavos', 1, 1, 2);
-        ponerResultadoEnLlave('octavos', 1, 2, 3);
+        ponerResultadoEnLlave('octavos', 2, 1, 2);
+        ponerResultadoEnLlave('octavos', 2, 2, 3);
 
         tabDeLlave('cuartos').click();
 
@@ -360,7 +361,62 @@
 
         expect(nombreEquipo('semis', 1, 1)).not().toBe('Ganador cuartos 1');
       });
+    });
  
+    describe('Final', function () {
+
+      it('deberia mostrar los equipos a enfrentarse antes de que finalicen los cuartos', function () {
+        botonLlaves().click();
+        expect(cantidadDePartidos('final')).toBe(2);
+        expect(nombreEquipo('final', 1, 1)).toBe('Ganador semifinal 1');
+        expect(nombreEquipo('final', 1, 2)).toBe('Ganador semifinal 2');
+        expect(nombreEquipo('final', 2, 1)).toBe('Perdedor semifinal 1');
+        expect(nombreEquipo('final', 2, 2)).toBe('Perdedor semifinal 2');
+      });
+
+      it('deberia enfrentar a los ganadores de semis', function () {
+        browser().navigateTo('/');
+
+        botonCompletarGruposDelGrupo('A').click();
+
+        botonLlaves().click();
+
+        // partido 1 de octavos: 2-0
+        ponerResultadoEnLlave('octavos', 1, 1, 2);
+        ponerResultadoEnLlave('octavos', 1, 2, 0);
+
+        // partido 2 de octavos: 2-3
+        ponerResultadoEnLlave('octavos', 2, 1, 2);
+        ponerResultadoEnLlave('octavos', 2, 2, 3);
+
+        // partido 3 de octavos: 2-0
+        ponerResultadoEnLlave('octavos', 3, 1, 2);
+        ponerResultadoEnLlave('octavos', 3, 2, 0);
+
+        // partido 4 de octavos: 2-3
+        ponerResultadoEnLlave('octavos', 4, 1, 2);
+        ponerResultadoEnLlave('octavos', 4, 2, 3);
+
+        tabDeLlave('cuartos').click();
+
+        // partido 1 de cuartos: 1-0
+        ponerResultadoEnLlave('cuartos', 1, 1, 1);
+        ponerResultadoEnLlave('cuartos', 1, 2, 0);
+
+        // partido 2 de cuartos: 1-0
+        ponerResultadoEnLlave('cuartos', 2, 1, 1);
+        ponerResultadoEnLlave('cuartos', 2, 2, 0);
+
+        tabDeLlave('semis').click();
+
+        // partido 1 de semis: 1-0
+        ponerResultadoEnLlave('semis', 1, 1, 1);
+        ponerResultadoEnLlave('semis', 1, 2, 0);
+
+        expect(nombreEquipo('final', 1, 1)).not().toBe('Ganador semifinal 1');
+        expect(nombreEquipo('final', 2, 1)).not().toBe('Perdedor semifinal 1');
+      });
+
     });
 
     function claseDeTabDelGrupo(letra) {

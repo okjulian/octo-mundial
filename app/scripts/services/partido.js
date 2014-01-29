@@ -6,6 +6,7 @@ angular.module('copaApp')
     this.equipos = [];
     this.resultado = [null, null];
     this.ganador = null;
+    this.perdedor = null;
     this.equipos.push(equipo1);
     this.equipos.push(equipo2);
   };
@@ -34,9 +35,11 @@ angular.module('copaApp')
       if (this.resultado[0] > this.resultado[1]) {
         this.equipos[0].puntos += 3;
         this.ganador = this.equipos[0];
+        this.perdedor = this.equipos[1];
       } else if (this.resultado[0] < this.resultado[1]) {
         this.equipos[1].puntos += 3;
         this.ganador = this.equipos[1];
+        this.perdedor = this.equipos[0];
       } else if (this.resultado[0] === this.resultado[1]) {
         this.equipos[0].puntos += 1;
         this.equipos[1].puntos += 1;

@@ -49,10 +49,10 @@
   <div class="row text-center" ng-repeat="partido in semis.partidos">
 
     <div class="input-group partido">
-      <input ng-model="partido.resultado[0]" ng-change="partido.ponerResultado(partido[0].resultado[0], null)" type="number" class="form-control resultado">
+      <input ng-model="partido.resultado[0]" ng-change="actualizarResultadoFinal(partido, partido[0].resultado[0], null)" type="number" class="form-control resultado">
       <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
       <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
-      <input ng-model="partido.resultado[1]" ng-change="partido.ponerResultado(null, partido.resultado[1])" type="number" class="form-control resultado">
+      <input ng-model="partido.resultado[1]" ng-change="actualizarResultadoFinal(partido, null, partido.resultado[1])" type="number" class="form-control resultado">
     </div>
 
     <hr ng-if="$odd && !$last" />
@@ -66,10 +66,10 @@
   <div class="row text-center">
 
     <div class="input-group partido">
-      <input ng-model="partidos.A[$index].resultado[0]" type="number" class="form-control resultado">
-      <span class="input-group-addon equipo">Argentina</span>
-      <span class="input-group-addon equipo">Colombia</span>
-      <input ng-model="partidos.A[$index].resultado[1]" type="number" class="form-control resultado">
+      <input ng-model="final.partido.resultado[0]" ng-change="final.partido.ponerResultado(final.partido[0].resultado[0], null)" type="number" class="form-control resultado">
+      <span class="input-group-addon equipo">{{final.partido.equipos[0].nombre}}</span>
+      <span class="input-group-addon equipo">{{final.partido.equipos[1].nombre}}</span>
+      <input ng-model="final.partido.resultado[1]" ng-change="final.partido.ponerResultado(null, final.partido.resultado[1])" type="number" class="form-control resultado">
     </div>
 
   </div>
@@ -78,10 +78,10 @@
   <div class="row text-center">
 
     <div class="input-group partido">
-      <input ng-model="partidos.A[$index].resultado[0]" type="number" class="form-control resultado">
-      <span class="input-group-addon equipo">Mexico</span>
-      <span class="input-group-addon equipo">USA</span>
-      <input ng-model="partidos.A[$index].resultado[1]" type="number" class="form-control resultado">
+      <input ng-model="repechaje.partido.resultado[0]" ng-change="repechaje.partido.ponerResultado(repechaje.partido[0].resultado[0], null)" type="number" class="form-control resultado">
+      <span class="input-group-addon equipo">{{repechaje.partido.equipos[0].nombre}}</span>
+      <span class="input-group-addon equipo">{{repechaje.partido.equipos[1].nombre}}</span>
+      <input ng-model="repechaje.partido.resultado[1]" ng-change="repechaje.partido.ponerResultado(null, repechaje.partido.resultado[1])" type="number" class="form-control resultado">
     </div>
 
   </div>

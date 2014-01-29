@@ -88,12 +88,14 @@ describe('Service: Partido', function () {
       expect(partido.resultado[1]).toBe(0);
     });
 
-    it('deberia setear al ganador una vez definido', function () {
+    it('deberia setear al ganador y perdedor una vez definidos', function () {
       var partido = new Partido(new Equipo('Argentina'), new Equipo('Brasil'));
 
       expect(partido.ganador).toBe(null);
+      expect(partido.perdedor).toBe(null);
       partido.ponerResultado(3, 1);
       expect(partido.ganador.nombre).toBe('Argentina');
+      expect(partido.perdedor.nombre).toBe('Brasil');
     });
 
   });
